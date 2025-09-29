@@ -1,0 +1,214 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 70px;
+  background: #2c0000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  padding: 1rem 0;
+  position: fixed; 
+  left: 0;
+  top: 0;
+}
+
+.sidebar:hover {
+  width: 220px;
+  padding-left: 1rem;
+}
+
+/* Logo */
+.sidebar .logo {
+  font-family: 'Old English Text MT', serif;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 2rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .logo {
+  opacity: 1;
+}
+
+/* Navigation */
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+.sidebar nav ul li a {
+  color: white;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1rem;
+  gap: 10px;
+}
+.sidebar nav ul li a img {
+  width: 24px;
+  height: 24px;
+}
+.sidebar nav ul li a span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+.sidebar:hover nav ul li a span {
+  opacity: 1;
+}
+
+/* Social section */
+.sidebar .social {
+  margin-top: auto;
+  margin-bottom: 2rem;
+  padding-left: 5px;
+}
+.sidebar .social h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.sidebar:hover .social h3 {
+  opacity: 1;
+}
+.sidebar .social ul {
+  list-style: none;
+}
+.sidebar .social li {
+  margin-bottom: 0.5rem;
+}
+.sidebar .social a {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.sidebar .social a img {
+  width: 20px;
+  height: 20px;
+}
+.sidebar:hover .social a {
+  opacity: 1;
+}
+
+/* Main */
+main {
+  flex: 1;
+  padding: 1rem;
+  margin-left: 70px; 
+  transition: margin-left 0.3s ease;
+}
+
+/* Shift main when sidebar expands */
+.sidebar:hover ~ main {
+  margin-left: 220px;
+}
+
+/* Banner */
+.banner img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+/* Gift Codes */
+.gift-codes {
+  background: #400;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.gift-codes h2 {
+  margin-bottom: 0.5rem;
+}
+.gift-codes ul {
+  list-style: none;
+}
+.gift-codes ul li {
+  padding: 2px 0;
+}
+
+/* Game Modes */
+.game-modes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.game-modes div {
+  background: #222;
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.game-modes img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Banners */
+.banners {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.banners div {
+  flex: 1;
+  background: #400;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.banners h2 {
+  margin-bottom: 0.5rem;
+}
+.banners img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+/* Birthday Calendar */
+.birthday {
+  background: #400;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.birthday ul {
+  list-style: none;
+}
+.birthday li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.birthday img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
