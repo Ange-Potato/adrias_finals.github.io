@@ -11,146 +11,127 @@ body {
   display: flex;
 }
 
-/* Sidebar (icon bar) */
-.sidebar {
+/* Header layout for main wrapper */
+.header {
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+  background-position: center;
+  background-size: cover;
+  
+}
+
+/* Sidebar */
+.side-nav {
   width: 70px;
-  background: #2c0000;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height: 100%;
   position: fixed;
+  top: 0;
   left: 0;
-  top: 0;
-  padding: 1rem 0;
-  align-items: center;
-}
-
-/* Sidebar extended (text bar) */
-.sidebar-extended {
-  width: 0;
-  overflow: hidden;
-  background: #2c0000;
-  min-height: 100vh;
+  padding: 30px 15px;
+  background-color: #2c0000;
+  backdrop-filter: blur(5px);
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-  position: fixed;
-  left: 70px;
-  top: 0;
-  padding: 1rem 0;
+  flex-direction: column;
   transition: width 0.3s ease;
+  overflow-x: hidden;
 }
 
-.sidebar:hover + .sidebar-extended {
-  width: 150px;
-}
-
-/* Align text inside extended bar */
-.sidebar-extended .logo,
-.sidebar-extended nav ul,
-.sidebar-extended .social {
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  padding-left: 10px; /* small indent for breathing room */
-}
-
-/* Fade in when expanded */
-.sidebar:hover + .sidebar-extended .logo,
-.sidebar:hover + .sidebar-extended nav ul,
-.sidebar:hover + .sidebar-extended .social {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Adjust spacing */
-.sidebar-extended nav ul li {
-  margin: 15px 0;
-}
-.sidebar-extended .social h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-
-/* Logo */
-.sidebar-extended .logo {
-  font-family: 'Old English Text MT', serif;
-  font-size: 1.5rem;
+/* User (LEGION logo area) */
+.user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
   color: white;
-  margin-bottom: 2rem;
+}
+
+.user div {
+  display: none;
+}
+
+.user h2 {
+  font-size: 16px;
+  font-weight: bold;
   white-space: nowrap;
-}
-
-/* Navigation */
-.sidebar nav ul,
-.sidebar-extended nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.sidebar nav ul li,
-.sidebar-extended nav ul li {
-  margin: 20px 0;
-}
-
-/* Icons */
-.sidebar nav ul li a img {
-  width: 24px;
-  height: 24px;
-}
-
-/* Links (extended bar text) */
-.sidebar-extended nav ul li a {
   color: white;
-  text-decoration: none;
-  font-size: 1rem;
-  display: block;
-  padding: 0.5rem;
-  border-radius: 6px;
-  transition: background 0.3s ease;
+  text-align: center;
+  font-family: 'Old English Text MT', serif;
 }
-.sidebar-extended nav ul li a:hover {
+
+/* Navigation Lists */
+ul {
+  list-style: none;
+  padding: 0 15px;
+}
+
+ul li {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+ul li:hover {
   background: #400;
 }
 
-/* Social Section */
-.sidebar-extended .social h3 {
+ul li img {
+  width: 30px;
+  margin-right: 0px;
+}
+
+/* Text hidden by default */
+ul li p {
+  white-space: nowrap;
+  display: none;
+  color: white;
   font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: white;
 }
-.sidebar-extended .social ul {
-  list-style: none;
-  padding: 0;
+
+/* Expand sidebar on hover */
+.side-nav:hover {
+  width: 250px;
 }
-.sidebar-extended .social li {
-  margin-bottom: 0.5rem;
-}
-.sidebar-extended .social a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
+
+.side-nav:hover .user div {
   display: block;
-  padding: 0.4rem;
-  border-radius: 6px;
-  transition: background 0.3s ease;
 }
-.sidebar-extended .social a:hover {
-  background: #400;
+
+.side-nav:hover .user {
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.side-nav:hover ul li {
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.side-nav:hover ul li p {
+  display: block;
 }
 
 /* Main */
 main {
   flex: 1;
   padding: 1rem;
-  margin-left: 70px; 
+  margin-left: 70px;
   transition: margin-left 0.3s ease;
 }
-.sidebar:hover + .sidebar-extended + main {
-  margin-left: 220px;
-}
+
 
 /* Banner */
 .banner img {
@@ -191,7 +172,7 @@ main {
   gap: 1rem;
 }
 .game-modes img {
-  width: 100%;
+  width: 105%; 
   border-radius: 10px;
 }
 
