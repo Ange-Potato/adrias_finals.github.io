@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, sans-serif;
   background: #111;
@@ -18,7 +19,6 @@ body {
   background-color: #111;
   background-position: center;
   background-size: cover;
-  
 }
 
 /* Sidebar */
@@ -36,9 +36,10 @@ body {
   flex-direction: column;
   transition: width 0.3s ease;
   overflow-x: hidden;
+  z-index: 9999; /* keeps sidebar above all content */
 }
 
-/* User (LEGION logo area) */
+/* Legion */
 .user {
   display: flex;
   align-items: center;
@@ -58,12 +59,46 @@ body {
 }
 
 .user h2 {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   white-space: nowrap;
   color: white;
   text-align: center;
-  font-family: 'Old English Text MT', serif;
+  font-family: 'Jacquard 24', serif;
+}
+
+/* Social */
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  color: white;
+}
+
+/* hide everything in social by default */
+.social * {
+  display: none;
+}
+
+/* show them only on hover */
+.side-nav:hover .social * {
+  display: block;
+}
+
+.social h2 {
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: white;
+  text-align: center;
+  font-family: 'Jacquard 24', serif;
 }
 
 /* Navigation Lists */
@@ -92,12 +127,20 @@ ul li img {
   margin-right: 0px;
 }
 
-/* Text hidden by default */
 ul li p {
   white-space: nowrap;
   display: none;
   color: white;
   font-size: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
 }
 
 /* Expand sidebar on hover */
@@ -110,6 +153,12 @@ ul li p {
 }
 
 .side-nav:hover .user {
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.side-nav:hover .social {
   width: 100%;
   justify-content: flex-start;
   padding-left: 10px;
@@ -131,7 +180,6 @@ main {
   margin-left: 70px;
   transition: margin-left 0.3s ease;
 }
-
 
 /* Banner */
 .banner img {
@@ -155,11 +203,13 @@ main {
   border-radius: 10px;
   text-align: center;
 }
+
 .gift-codes ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .gift-codes ul li {
   margin: 0.5rem 0;
   line-height: 1.5;
@@ -171,64 +221,144 @@ main {
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
+
 .game-modes img {
-  width: 105%; 
+  width: 105%;
   border-radius: 10px;
 }
 
-/* Birthday Calendar */
-.birthday {
-  background: #400;
-  padding: 1rem;
-  border-radius: 10px;
-}
-.birthday ul {
-  list-style: none;
-}
-.birthday li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-.birthday img {
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
-  object-fit: cover;
-  margin-right: 0.5rem;
-}
-
-/* Banners Row */
-.banners {
+/* Banners + Birthday Section */
+.banner-birthday-row {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+  align-items: flex-start;
 }
+
+/* Banners */
+.banners {
+  flex: 2;
+  display: flex;
+  gap: 1rem;
+}
+
 .banners div {
   flex: 1;
   background: #400;
   padding: 1rem;
   border-radius: 10px;
+  text-align: center;
 }
+
+.banners h2 {
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
 .banners img {
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
-/* Banners + Birthday */
-.banner-birthday-row {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.banner-birthday-row .banners {
-  flex: 2;
-  display: flex;
-  gap: 1rem;
-}
-.banner-birthday-row .birthday {
+/* Birthday */
+.birthday {
   flex: 1;
+  background: #400;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.birthday h2 {
+  text-align: center;
+  margin-bottom: 0.8rem;
+}
+
+.birthday ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.birthday li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin: 0.3rem 0;
+  line-height: 1.1;
+}
+
+.birthday img {
+  width: 50px;
+  height: 35px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.birthday li span {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1;
+  text-align: left;
+}
+
+/* --- Sinners Page --- */
+.sinners {
+  background-color: #111111;
+  padding: 2rem 3rem;
+  margin-left: 70px;
+  min-height: 100vh;
+  color: white;
+  text-align: left;
+}
+
+.sinner-title {
+  font-family: 'Jacquard 24', serif;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.sinner-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.sinner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.sinner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.sinner p {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.3rem;
+  font-size: 1rem;
+  font-family: 'Jacquard 24', serif;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  opacity: 0;
 }
 
 /* Footer */
