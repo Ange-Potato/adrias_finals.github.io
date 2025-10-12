@@ -160,15 +160,17 @@
 
     units.forEach(unit => {
       unit.addEventListener('mouseenter', e => {
+        const rect = unit.getBoundingClientRect(); 
         descBox.style.display = 'block';
         descBox.textContent = unit.getAttribute('data-desc');
-        descBox.style.left = (e.pageX + 15) + 'px';
-        descBox.style.top = (e.pageY + 15) + 'px';
+        descBox.style.left = rect.left + window.scrollX + 'px';  
+        descBox.style.top = rect.bottom + window.scrollY + 10 + 'px';
       });
 
       unit.addEventListener('mousemove', e => {
-        descBox.style.left = (e.pageX + 15) + 'px';
-        descBox.style.top = (e.pageY + 15) + 'px';
+        const rect = unit.getBoundingClientRect();
+        descBox.style.left = rect.left + window.scrollX + 'px';
+        descBox.style.top = rect.top + window.scrollY - descBox.offsetHeight - 10 + 'px';
       });
 
       unit.addEventListener('mouseleave', () => {
