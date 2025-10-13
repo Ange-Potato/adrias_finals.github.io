@@ -86,7 +86,15 @@ body {
   display: none;
 }
 
+.social-links img {
+  display: none;
+}
+
 .side-nav:hover .social * {
+  display: block;
+}
+
+.side-nav:hover .social-links img {
   display: block;
 }
 
@@ -495,12 +503,12 @@ main {
 }
 
 .difficulty {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
 }
 
 .rating {
-  background: #b30000;
   color: #fff;
   padding: 0.2rem 0.6rem;
   border-radius: 5px;
@@ -638,8 +646,7 @@ main {
   }
 }
 
-
-/* Footer */
+/* ------------------- FOOTER ------------------- */
 .footer {
   text-align: center;
   font-size: 0.85rem;
@@ -649,3 +656,5 @@ main {
   margin-top: 1rem;
   background-color: #464646;
 }
+
+/* ------------------- Viewports ------------------- */
