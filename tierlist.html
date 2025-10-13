@@ -154,29 +154,40 @@
   </main>
 
   <!-- Character Description JS -->
+  <!-- should be working on desktop not on mobile and tablet -->
   <script>
     const units = document.querySelectorAll('.unit');
     const descBox = document.getElementById('descBox');
+    function enableHover() {
+      if (window.innerWidth > 1024) {
+        units.forEach(unit => {
+          unit.addEventListener('mouseenter', e => {
+            descBox.style.display = 'block';
+            descBox.textContent = unit.getAttribute('data-desc');
+            descBox.style.left = (e.clientX + 15) + 'px';
+            descBox.style.top = (e.clientY + 15 + window.scrollY) + 'px';
+          });
 
-    units.forEach(unit => {
-      unit.addEventListener('mouseenter', e => {
-        const rect = unit.getBoundingClientRect(); 
-        descBox.style.display = 'block';
-        descBox.textContent = unit.getAttribute('data-desc');
-        descBox.style.left = rect.left + window.scrollX + 'px';  
-        descBox.style.top = rect.bottom + window.scrollY + 10 + 'px';
-      });
+          unit.addEventListener('mousemove', e => {
+            descBox.style.left = (e.clientX + 15) + 'px';
+            descBox.style.top = (e.clientY + 15 + window.scrollY) + 'px';
+          });
 
-      unit.addEventListener('mousemove', e => {
-        const rect = unit.getBoundingClientRect();
-        descBox.style.left = rect.left + window.scrollX + 'px';
-        descBox.style.top = rect.top + window.scrollY - descBox.offsetHeight - 10 + 'px';
-      });
-
-      unit.addEventListener('mouseleave', () => {
+          unit.addEventListener('mouseleave', () => {
+            descBox.style.display = 'none';
+          });
+        });
+      } else {
         descBox.style.display = 'none';
-      });
-    });
+        units.forEach(unit => {
+          unit.removeEventListener('mouseenter', null);
+          unit.removeEventListener('mousemove', null);
+          unit.removeEventListener('mouseleave', null);
+        });
+      }
+    }
+    window.addEventListener('load', enableHover);
+    window.addEventListener('resize', enableHover);
   </script>
 </body>
 </html>

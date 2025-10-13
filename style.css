@@ -662,6 +662,72 @@ main {
 /* ------------------- MOBILE ------------------- */
 
 /* ------------------- TABLET ------------------- */
+/* still need to resize some things before anything */
+@media screen and (min-width: 630px) and (max-width: 1024px) {
+  main {
+    margin-left: 70px;
+    padding: 1.5rem;
+  }
+
+  .side-nav {
+    width: 70px;
+  }
+
+  .top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .gift-codes {
+    grid-column: 1 / 2;
+  }
+
+  .banners {
+    grid-column: 1 / 2;
+    flex-direction: column;
+  }
+
+  .game-modes {
+    grid-column: 2 / 3;
+    grid-template-columns: 1fr;
+  }
+
+  .birthday {
+    grid-column: 2 / 3;
+  }
+
+  .banners div,
+  .gift-codes,
+  .birthday,
+  .game-modes div {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .game-modes img {
+    width: 100%;
+  }
+
+  .banner-birthday-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .boss-guide {
+    padding: 1.5rem 2rem;
+  }
+
+  .guide-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .difficulty {
+    font-size: 1.2rem;
+  }
+}
 
 /* ------------------- PRINT ------------------- */
 @media print {
