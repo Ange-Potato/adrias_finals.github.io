@@ -194,6 +194,10 @@ main {
   margin-bottom: 1rem;
 }
 
+.home-tablet {
+  display: none;
+}
+
 /* Layout: Top Row (2 columns) */
 .top-row {
   display: grid;
@@ -314,12 +318,16 @@ main {
 
 /* ------------------- SINNERS SECTION ------------------- */
 .sinners {
-  background-color: #111111;
+  background-color: #11110f;
   padding: 2rem 3rem;
   margin-left: 70px;
   min-height: 100vh;
   color: white;
   text-align: left;
+}
+
+.sinners-tablet {
+  display: none;
 }
 
 .sinner-title {
@@ -369,7 +377,7 @@ main {
 
 /* ------------------- TIERLIST SECTION ------------------- */
 .tierlist-container {
-  background: #000;
+  background: #11110f;
   color: white;
   padding: 2rem;
   font-family: 'Poppins', sans-serif;
@@ -446,7 +454,7 @@ main {
 .guide-section {
   text-align: center;
   padding: 40px 0;
-  background-color: #000;
+  background-color: #11110f;
 }
 
 .guide-section h1 {
@@ -486,7 +494,7 @@ main {
 
 /* Firebather */
 .boss-guide {
-  background: #000;
+  background-color: #11110f;
   color: #fff;
   padding: 2rem 3rem;
   font-family: 'Poppins', sans-serif;
@@ -563,7 +571,7 @@ main {
 .guide-section {
   text-align: center;
   padding: 40px 0;
-  background-color: #000;
+  background-color: #11110f;
 }
 
 .guide-section h1 {
@@ -614,7 +622,7 @@ main {
 
 /* ------------------- BANNERS SECTION ------------------- */
 .banner-sinner {
-  background: #000;
+  background-color: #11110f;
   color: white;
   padding: 2rem;
   font-family: 'Poppins', sans-serif;
@@ -663,7 +671,6 @@ main {
 
 /* ------------------- TABLET ------------------- */
 @media screen and (min-width: 630px) and (max-width: 1024px) {
-  
   .home-tablet,
   .sinners-tablet {
     display: flex;
@@ -833,6 +840,39 @@ main {
   .difficulty {
     font-size: 1.2rem;
   }
+
+  /* Side Bar */
+  .side-nav {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .user {
+    margin: 0 auto 10px auto;
+    align-self: center;
+  }
+
+  .user h2 {
+    font-size: 18px;
+  }
+
+  .side-nav ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .side-nav ul li {
+    margin: 15px 0;
+  }
+
+  .social {
+    margin-top: 2rem;
+    align-self: center;
+  }
+
 }
 
 /* ------------------- PRINT ------------------- */
