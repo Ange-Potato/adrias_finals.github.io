@@ -139,6 +139,39 @@
     <footer class="footer">
       <p>&copy; Copyright 2025. All rights reserved. Created by Angelica Adrias</p>
     </footer>
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <div class="mobile-header">
+      <h2>Legion</h2>
+      <button id="menu-toggle" class="menu-toggle">☰</button>
+    </div>
+    <ul id="mobile-menu" class="mobile-menu">
+      <li><a href="home.html">Home Page</a></li>
+      <li><a href="sinner.html">Sinners</a></li>
+      <li><a href="tierlist.html">Tierlist</a></li>
+      <li><a href="guide.html">Guide</a></li>
+      <li><a href="banner.html">Banner</a></li>
+    </ul>
+  </nav>
+
+  <div id="menu-overlay" class="menu-overlay"></div>
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('menu-overlay');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    overlay.addEventListener('click', () => {
+      menu.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+  </script>
   </main>
 </body>
 </html>
