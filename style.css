@@ -662,60 +662,166 @@ main {
 /* ------------------- MOBILE ------------------- */
 
 /* ------------------- TABLET ------------------- */
-/* still need to resize some things before anything */
 @media screen and (min-width: 630px) and (max-width: 1024px) {
+  
+  .home-tablet,
+  .sinners-tablet {
+    display: flex;
+  }
+
+  .top-row,
+  .banner-birthday-row,
+  .sinners {
+    display: none;
+  }
+
   main {
     margin-left: 70px;
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .side-nav {
     width: 70px;
   }
 
-  .top-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  /* HOME TABLET */
+  .home-tablet {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 1rem;
-  }
-
-  .gift-codes {
-    grid-column: 1 / 2;
-  }
-
-  .banners {
-    grid-column: 1 / 2;
-    flex-direction: column;
-  }
-
-  .game-modes {
-    grid-column: 2 / 3;
-    grid-template-columns: 1fr;
-  }
-
-  .birthday {
-    grid-column: 2 / 3;
-  }
-
-  .banners div,
-  .gift-codes,
-  .birthday,
-  .game-modes div {
     padding: 1rem;
+    align-items: flex-start;
+  }
+
+  .home-tablet .tablet-left,
+  .home-tablet .tablet-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .home-tablet h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .home-tablet img {
+    width: 100%;
     border-radius: 10px;
   }
 
-  .game-modes img {
+   /* Giftcodes Area */
+  .home-tablet .gift-codes {
+    background: #400;
+    padding: 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .home-tablet .gift-codes ul li {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+  }
+
+   /* Banner Area */
+  .home-tablet .banners {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .home-tablet .banners div {
+    background: #400;
+    padding: 0.8rem;
+    border-radius: 10px;
+  }
+
+   /* Gamemode Area */
+  .home-tablet .game-modes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .home-tablet .game-modes div img {
     width: 100%;
+    border-radius: 10px;
   }
 
-  .banner-birthday-row {
+   /* Birthday Area */
+  .home-tablet .birthday {
+    background: #400;
+    padding: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .home-tablet .birthday ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .home-tablet .birthday li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .home-tablet .birthday img {
+    width: 45px;
+    height: 32px;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+
+  .home-tablet .birthday strong {
+    font-size: 0.95rem;
+  }
+
+  .home-tablet .birthday span {
+    font-size: 0.85rem;
+  }
+
+   /* Sinner Area */
+  .sinners-tablet {
+    flex-direction: column;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .sinners-tablet .sinner-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    text-align: left;
+  }
+
+  .sinners-tablet .sinner-grid-tablet {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    align-items: start;
   }
 
+  .sinner-grid-tablet .sinner img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+  }
+
+  .sinner-grid-tablet .sinner img:hover {
+    transform: scale(1.05);
+  }
+
+  .sinner-grid-tablet .sinner p {
+    text-align: center;
+    margin-top: 0.3rem;
+    font-family: 'Jacquard 24', serif;
+  }
+
+  /* Guide Area */
   .boss-guide {
     padding: 1.5rem 2rem;
   }
