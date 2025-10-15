@@ -198,6 +198,7 @@ main {
 .home-mobile,
 .sinner-mobile,
 .tierlist-mobile,
+.banner-mobile,
 .home-tablet {
   display: none;
 }
@@ -967,6 +968,43 @@ main {
     transform: scale(1.05);
   }
 
+  .banner-sinner { display: none; }
+  .banner-mobile { 
+    display: block;
+    background: #11110f;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .banner-title {
+    font-family: 'Jacquard 24', serif;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .banner-mobile-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .banner-mobile-list img {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease;
+  }
+
+  .banner-mobile-list img:hover {
+    transform: scale(1.03);
+  }
+
+  .desc-box {
+    display: none;
+  }
 }
 
 /* ------------------- TABLET ------------------- */
@@ -980,7 +1018,8 @@ main {
   .tierlist-mobile,
   .top-row,
   .banner-birthday-row,
-  .sinners {
+  .sinners,
+  .banner-mobile {
     display: none;
   }
 
@@ -1176,6 +1215,10 @@ main {
   .social {
     margin-top: 2rem;
     align-self: center;
+  }
+
+  .desc-box {
+    display: none;
   }
 
 }

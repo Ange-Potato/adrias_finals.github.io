@@ -175,7 +175,8 @@
           </div>
         </div>
       </div>
-      <!-- Nav for the Mobile -->
+
+      <!-- Mobile Nav -->
       <nav class="mobile-nav">
         <div class="mobile-header">
           <h2>Legion</h2>
@@ -198,22 +199,68 @@
   </main>
 
   <!-- JavaScript -->
-  <script>
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    const overlay = document.getElementById('menu-overlay');
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('menu-overlay');
 
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-      overlay.classList.toggle('active');
-      document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+  });
+
+  overlay.addEventListener('click', () => {
+    menu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+
+  // Character Desc
+  const descriptions = {
+    "Shalom": "Shalom, the perfect woman. Strong and versatile, especially at S3. No idea who to bring? Just take Shalom, she will clean up every single speck of dust. She and Yingying stand toe-to-toe for the title of 'the one must-pull Sinner' in PTN at S0.",
+    "L.L": "A game-changing support. S0 is complete, any shackles you can get are good value. She is the difference between CN server having just a few TOA7 full clear videos, and global having dozens.",
+    "000": "Ridiculous damage numbers, large AoE multi-corebreak, completely worthy of being a full Anniversary limited alongside Shalom. Bonus points for being super cute.",
+    "Nox": "High AoE damage, beats up story bosses, waveclears everything in Dark Zone, can tank, beats up Mania Training. Has gained extra value with her Defense reduction, as bosses are getting more and more Defense these days.",
+    "OwO": "Use her ECB to instantly throw up to 20% bonus damage buff onto an ally forever, make them stand next to her for easy ATK buff. Can tank, deals 2 corebreaks.",
+    "Lady Pearl": "Her overall damage numbers have been powercrept but it's not that she's bad anymore, the power level of PTN Sinners have just increased to the point of pushing her just a bit out of that + rating.",
+    "Duruo": "Strong AoE healer, able to rescue you from your own skill issues with unique revive ECB. S0 very comfortable healer, S4 can do funny solo carry memes.",
+    "Coquelic": "Grandma is really the best. Where Shalom just can’t heal, Coquelic just can’t corebreak. Really OP in certain modes like EX Stages. S1 strongly recommended for the big boost in healing.",
+    "Deren": "Her skills have too many words. Just Ult whenever you can, and throw all the ECB uses when the boss is corebroken. Kind of powercrept by 000, but raw damage with corebreaks is still damage.",
+    "McQueen": "Powercrept by Shrooma. Still a good choice to invest in especially for new Chiefs with limited options.",
+    "Angell": "Her damage output itself is actually fine and able to fully slay bosses as a solo carry even in recent seasons of BFL DZ with their ridiculous DEF numbers.",
+    "Dudu": "Her ECB buff is nice, just annoying that it’s fixed to one location sometimes. Her P2 buff is also lowkey underrated, but it’s a hassle to work with for new Chiefs.",
+    "EMP": "Her range is great and her damage output is also very good, especially considering the fact she’s a B-Rank. Being able to get bonus Ults to break more cores is an underrated bonus.",
+    "Hella": "Hella's RF is technically free (if you Ascend her, the game refunds the materials to you), so it's worth it in that sense.",
+    "Mira": "Interesting kit and should be played as an Endura, not a Fury. Taunt, self-heal, and damage reduction.",
+    "Flora": "First point, she can CRIT, and AISNO is really into the CRIT meta right now.",
+    "Garofano": "She's not a must in the Weakspot team, but she's okay to bring along since she contributes corebreak and her ECB is actually Amp for Bianca as well."
+  };
+
+  const descBox = document.getElementById('descBox');
+  const units = document.querySelectorAll('.tierlist-container .unit img');
+
+  units.forEach(img => {
+    img.addEventListener('mouseenter', (e) => {
+      if (window.innerWidth <= 1024) return;
+      const name = e.target.alt;
+      const text = descriptions[name];
+      if (!text) return;
+      descBox.textContent = text;
+      descBox.style.display = 'block';
+      descBox.style.left = `${e.pageX + 15}px`;
+      descBox.style.top = `${e.pageY - 40}px`;
     });
 
-    overlay.addEventListener('click', () => {
-      menu.classList.remove('active');
-      overlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
+    img.addEventListener('mousemove', (e) => {
+      descBox.style.left = `${e.pageX + 15}px`;
+      descBox.style.top = `${e.pageY - 40}px`;
     });
-  </script>
+
+    img.addEventListener('mouseleave', () => {
+      descBox.style.display = 'none';
+    });
+  });
+</script>
 </body>
 </html>
